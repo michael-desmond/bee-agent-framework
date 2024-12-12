@@ -78,7 +78,7 @@ const llm = getChatLLM();
 const agent = new BeeAgent({
   llm,
   memory: new TokenMemory({ llm }),
-  tools: [new OpenMeteoTool(), new DuckDuckGoSearchTool({ maxResults: 3 })],
+  tools: [new OpenMeteoTool(), new DuckDuckGoSearchTool({ maxResults: 3 , { maxResults: 3, throttle:{interval: 5000, limit: 1}})],
 });
 
 const reader = createConsoleReader();
